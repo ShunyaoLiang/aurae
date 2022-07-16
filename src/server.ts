@@ -7,10 +7,12 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
+// IDK how this works.
+app.use('/static', express.static('static'));
 app.use(express.static('static'));
 
 app.get('/', (_, res) => {
-  res.sendFile('/index.html')
+  res.sendFile('/static/index.html')
 });
 
 const PORT: number = parseInt(process.env.PORT || config.port);
