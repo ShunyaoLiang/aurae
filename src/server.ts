@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { homePageData, Profiledata, reachOutNotif, setMood } from './functions';
+import { homePageData, moodSelect, Profiledata, reachOutNotif, setMood } from './functions';
 import config from './config.json';
 
 const app = express();
@@ -42,46 +42,12 @@ app.get('/reachOut', (req, res, next) => {
   res.json(reachOutNotif(userToken));
 });
 
-// The home page.
-app.get('/', (req, res) => {
-  const token = req.query.token;
-  res.render('index', {
-    friends: [
-      {
-        uId: 1000,
-        email: 'Amy@gmail.com',
-        password: 'password',
-        username: 'Amy',
-        mood: [5,4,5],
-        comment: 'Hello, I am Amy'
-      },
-      {
-        uId: 1001,
-        email: 'Deon@gmail.com',
-        password: 'password',
-        username: 'Deon',
-        mood: [1,1,1],
-        comment: 'Hi guys, my name is Deon'
-      },
-      {
-        uId: 1002,
-        email: 'Emily@gmail.com',
-        password: 'password',
-        username: 'Emily',
-        mood: [4,4,3],
-        comment: 'I am probably coding right now '
-      },
-      {
-        uId: 1003,
-        email: 'Ava@gmail.com',
-        password: 'password',
-        username: 'Ava',
-        mood: [5,2,5],
-        comment: 'Keep smiling' // lol idk
-      }
-    ]
-  });
+app.get('/setMoodCheck', (req, res, next) => {
+  let { token } = req.query;
+  const userToken = parseInt((token as string));
+  res.json(moodSelect(userToken));
 });
+
 
 // User profiles.
 app.get('/users/:id', (req, res) => {
