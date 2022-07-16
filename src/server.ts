@@ -1,11 +1,13 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import { homePageData, Profiledata, reachOutNotif, setMood } from './functions';
 import config from './config.json';
 
 const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors());
 
 // Mount static files in public to be accessible from the prefix static.
 // Don't touch this it works ???
@@ -14,9 +16,11 @@ app.use('/static', express.static('public'));
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-app.post('/setMood', (req, res, next) => {
-  const { uId, mood } = req.body
-  res.json(setMood(uId, mood));
+app.get('/setMood', (req, res, next) => {
+  const { uId, mood } = req.query;
+  const user = parseInt((uId as string));
+  const userMood = parseInt((mood as string))
+  res.json(setMood(user, userMood));
 });
 
 app.get('/summaryPage', (req, res, next) => {
@@ -33,10 +37,9 @@ app.get('/userProfile', (req, res, next) => {
 });
 
 app.get('/reachOut', (req, res, next) => {
-  let { token, uId } = req.query;
+  let { token } = req.query;
   const userToken = parseInt((token as string));
-  const user = parseInt((uId as string));
-  res.json(reachOutNotif(userToken, user));
+  res.json(reachOutNotif(userToken));
 });
 
 // The home page.
