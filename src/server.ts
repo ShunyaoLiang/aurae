@@ -42,10 +42,12 @@ app.get('/reachOut', (req, res, next) => {
   res.json(reachOutNotif(userToken));
 });
 
-app.get('/setMoodCheck', (req, res, next) => {
-  let { token } = req.query;
-  const userToken = parseInt((token as string));
-  res.json(moodSelect(userToken));
+// The home page.
+app.get('/', (req, res) => {
+  const token = parseInt(req.query.token as string);
+  res.render('index', {
+    friends: homePageData(token)
+  });
 });
 
 
