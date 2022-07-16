@@ -1,74 +1,66 @@
 html { }
 
-.overlay {
+.aura {
 	height: 100%;
 	width: 100%;
-	position: fixed;
-	z-index: 1;
-	overflow-x: hidden; /* Disable horizontal scroll */
+        position: relative;
+        
 }
-
-.overlay-content {
+.aura-content {
   position: relative;
-  top: 25%; /* 25% from the top */
+  
   width: 100%; /* 100% width */
   text-align: center; /* Centered text/links */
-  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  margin-top: 50px;
 }
 
 #mood-prompt {
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 0.5s ease-in;
 }
 
-#mood-prompt:hover {
+#mood-prompt:button:hover {
 	opacity: 1;
 }
 
 #mood-prompt-button-row {
-	margin-top: 100px;
+	margin-top: 0px;
+
 }
 
 #mood-prompt button {
-	width: 120px;
-	height: 120px;
-	margin-left: 50px;
-	margin-right: 50px;
-	border-radius: 10px;
+	width: 600px;
+	height: 300px;
+	margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+	border-radius: 200px;
 	border: none;
+        display: block;
+        text-align: center;
+        
 }
-
+/* TODO - gradients + num buttons currently also hardcoded like about.html*/
 #button-1 {
-	background-color: #9F7BE9;
+	background: radial-gradient(#31C5F4, #9F7BE9, #E923F4);
 }
 
 #button-2 {
-	background-color: #F8F37F;
+	background: radial-gradient(#9F7BE9, #F8F37F, #31C5F4);
 }
 
 #button-3 {
-	background-color: #ABF38F;
+	background: radial-gradient(#31C5F4, #9F7BE9, #F8F37F);
 }
 
 #button-4 {
-	background-color: #31C5F4;
+	background: radial-gradient(#9F7BE9, #F8F37F, #E923F4);
+
 }
 
 #button-5 {
-	background-color: #E923F4;
+	background: radial-gradient(#E923F4, #31C5F4, #F8F37F);
 }
 
 
-#friendaura button {
-	width: 120px;
-	height: 120px;
-	margin-left: 60px;
-	margin-right: 50px;
-	border-radius: 10px;
-	border: none;
-}
-
-#friendaura-1 {
-	background-color: #73D0ED;
-	
-}

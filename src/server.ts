@@ -1,6 +1,5 @@
 import express from 'express';
 import morgan from 'morgan';
-import path from 'path';
 import { homePageData, Profiledata, reachOutNotif, setMood } from './functions';
 import config from './config.json';
 
@@ -9,7 +8,9 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Mount static files in public to be accessible from the prefix static.
-app.use('/static', express.static(path.join(__dirname, 'public')));
+// Don't touch this it works ???
+app.use('/static', express.static('public'));
+
 app.set('views', './views');
 app.set('view engine', 'pug');
 
@@ -41,9 +42,42 @@ app.get('/reachOut', (req, res, next) => {
 // The home page.
 app.get('/', (req, res) => {
   const token = req.query.token;
-  // Shockingly, this seems to be the idiomatic way to do this.
-  // Express.js is a travesty of engineering.
-  res.sendFile(path.join(__dirname, '../views/', 'index.html'));
+  res.render('index', {
+    friends: [
+      {
+        uId: 1000,
+        email: 'Amy@gmail.com',
+        password: 'password',
+        username: 'Amy',
+        mood: [5,4,5],
+        comment: 'Hello, I am Amy'
+      },
+      {
+        uId: 1001,
+        email: 'Deon@gmail.com',
+        password: 'password',
+        username: 'Deon',
+        mood: [1,1,1],
+        comment: 'Hi guys, my name is Deon'
+      },
+      {
+        uId: 1002,
+        email: 'Emily@gmail.com',
+        password: 'password',
+        username: 'Emily',
+        mood: [4,4,3],
+        comment: 'I am probably coding right now '
+      },
+      {
+        uId: 1003,
+        email: 'Ava@gmail.com',
+        password: 'password',
+        username: 'Ava',
+        mood: [5,2,5],
+        comment: 'Keep smiling' // lol idk
+      }
+    ]
+  });
 });
 
 // User profiles.
