@@ -50,6 +50,11 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/setMoodCheck', (req, res, next) => {
+  let { token } = req.query;
+  const userToken = parseInt((token as string));
+  res.json(moodSelect(userToken));
+});
 
 // User profiles.
 app.get('/users/:id', (req, res) => {
