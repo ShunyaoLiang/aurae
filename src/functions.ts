@@ -2,6 +2,7 @@ import e from "express";
 import { getData, setdata } from "./dataStore";
 
 interface returnData {
+	uId: number;
 	username: string;
 	mood: number[];
 	comment: string
@@ -61,6 +62,7 @@ function homePageData(uId: number): returnData[] {
 		if (i.uId !== uId) {
 			// username, latest mood, random comment (kinda like insta bio)
 			returnData.push({
+				uId: i.uId,
 				username: i.username,
 				mood: i.mood,
 				comment: i.comment
