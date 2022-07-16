@@ -39,21 +39,36 @@ html { }
 }
 
 #button-1 {
-	background-color: #002084;
+	background-color: #9F7BE9;
 }
 
 #button-2 {
-	background-color: #4B42EF;
+	background-color: #F8F37F;
 }
 
 #button-3 {
-	background-color: #3D85F1;
+	background-color: #ABF38F;
 }
 
 #button-4 {
-	background-color: #64A4EF;
+	background-color: #31C5F4;
 }
 
 #button-5 {
+	background-color: #E923F4;
+}
+
+
+#friendaura button {
+	width: 120px;
+	height: 120px;
+	margin-left: 60px;
+	margin-right: 50px;
+	border-radius: 10px;
+	border: none;
+}
+
+#friendaura-1 {
 	background-color: #73D0ED;
+	
 }
