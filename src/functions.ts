@@ -1,6 +1,16 @@
 import e from "express";
 import { getData, setdata } from "./dataStore";
 
+interface returnData {
+	username: string;
+	moodOfTheDay: number;
+	comment: string
+}
+interface profileData {
+	username: string;
+	mood: number[];
+	comment: string
+}
 
 function userLogin (username: string, password: string) {
 	let data = getData();
@@ -36,16 +46,16 @@ function userLogout (token: number) {
 
 function setMood (uId: number, mood: number) {
 	let data = getData();
-	const index = data.users.find(e => e.uId === uId);
+	const index = data.users.findIndex(e => e.uId === uId);
 	data.users[index].mood.push(mood);
 	setdata(data);
 	return;
 }
 // returns an array of objects of all the users
-function homePageData(uId: number) {
+function homePageData(uId: number): returnData[] {
 	let data = getData();
 	const index = data.users.some(e => e.uId === uId)
-	let returnData = [];
+	let returnData: returnData[] = [];
 	for (let i of data.users) {
 		if (i.uId !== uId) {
 			// username, latest mood, random comment (kinda like insta bio)
@@ -59,19 +69,19 @@ function homePageData(uId: number) {
 	return returnData;
 }
 
-function Profiledata(token: number, uId: number) {
+function Profiledata(token: number, uId: number): profileData {
 	let data = getData();
-	let profileData = [];
+	let profileData: profileData[] = [];
 	const index = data.users.findIndex(e => e.uId === uId);
 	profileData.push({
 		username: data.users[index].username,
 		mood: data.users[index].mood,// full mood array, last index is latest
 		comment: data.users[index].comment
 	})
-	return Profiledata;
+	return profileData[0];
 }
 
-function reachOutNotif(token: number, uId: number) {
+function reachOutNotif(token: number) {
 	let data = getData();
 	for (let i of data.users) {
 		let index = i.mood.length - 1

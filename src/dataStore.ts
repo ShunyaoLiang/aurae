@@ -1,4 +1,4 @@
-let dataStore = {
+let dataStore: dataStore = {
     users: [],
     sessions: [],
   }
@@ -45,6 +45,10 @@ let dataStore = {
   })
 
   interface data {
+    users: users[];
+    sessions: sessions[];
+  }
+  interface dataStore {
     users: users[];
     sessions: sessions[];
   }
