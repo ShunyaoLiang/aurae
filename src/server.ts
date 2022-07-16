@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import { homePageData, Profiledata, reachOutNotif, setMood } from './functions';
+import { homePageData, moodSelect, Profiledata, reachOutNotif, setMood } from './functions';
 import config from './config.json';
 
 const app = express();
@@ -48,6 +48,12 @@ app.get('/', (req, res) => {
   res.render('index', {
     friends: homePageData(token)
   });
+});
+
+app.get('/setMoodCheck', (req, res, next) => {
+  let { token } = req.query;
+  const userToken = parseInt((token as string));
+  res.json(moodSelect(userToken));
 });
 
 // User profiles.

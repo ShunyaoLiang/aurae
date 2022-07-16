@@ -8,7 +8,8 @@ let dataStore: dataStore = {
     password: 'password',
     username: 'Amy',
     mood: [5,4,5],
-    comment: 'Hello, I am Amy'
+    comment: 'Hello, I am Amy',
+    moodSelected: false
   },
   {
     uId: 1001,
@@ -16,7 +17,8 @@ let dataStore: dataStore = {
     password: 'password',
     username: 'Deon',
     mood: [1,1,1],
-    comment: 'Hi guys, my name is Deon'
+    comment: 'Hi guys, my name is Deon',
+    moodSelected: false
   },
   {
     uId: 1002,
@@ -24,7 +26,8 @@ let dataStore: dataStore = {
     password: 'password',
     username: 'Emily',
     mood: [4,4,3],
-    comment: 'I am probably coding right now '
+    comment: 'I am probably coding right now ',
+    moodSelected: false
   },
   {
     uId: 1003,
@@ -32,7 +35,8 @@ let dataStore: dataStore = {
     password: 'password',
     username: 'Ava',
     mood: [5,2,5],
-    comment: 'Keep smiling' // lol idk
+    comment: 'Keep smiling', // lol idk
+    moodSelected: false
   },
   )
   dataStore.sessions.push({
@@ -59,6 +63,7 @@ let dataStore: dataStore = {
     username: string;
     mood: number[];
     comment: string;
+    moodSelected: boolean;
   }
   interface sessions {
     uId: number;

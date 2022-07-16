@@ -93,4 +93,14 @@ function reachOutNotif(token: number) {
 	return;
 }
 
-export { userLogin, userLogout, setMood, homePageData, Profiledata, reachOutNotif };
+function moodSelect (token: number ) {
+	let data = getData();
+	const index = data.users.findIndex(e => e.uId === token);
+	if (!data.users[index].moodSelected) {
+		data.users[index].moodSelected = true;
+		return false;
+	}
+	return true;
+}
+
+export { userLogin, userLogout, setMood, homePageData, Profiledata, reachOutNotif, moodSelect };
