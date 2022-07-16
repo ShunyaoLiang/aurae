@@ -24,8 +24,8 @@ app.get('/setMood', (req, res, next) => {
 });
 
 app.get('/summaryPage', (req, res, next) => {
-  let { uId } = req.query;
-  const user = parseInt((uId as string));
+  let { token } = req.query;
+  const user = parseInt((token as string));
   res.json(homePageData(user));
 });
 

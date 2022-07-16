@@ -3,7 +3,7 @@ import { getData, setdata } from "./dataStore";
 
 interface returnData {
 	username: string;
-	moodOfTheDay: number;
+	mood: number[];
 	comment: string
 }
 interface profileData {
@@ -11,6 +11,7 @@ interface profileData {
 	mood: number[];
 	comment: string
 }
+
 
 function userLogin (username: string, password: string) {
 	let data = getData();
@@ -61,7 +62,7 @@ function homePageData(uId: number): returnData[] {
 			// username, latest mood, random comment (kinda like insta bio)
 			returnData.push({
 				username: i.username,
-				moodOfTheDay: i.mood[2],
+				mood: i.mood,
 				comment: i.comment
 			})
 		}
