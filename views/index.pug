@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+	include ./head.pug
+	body(body style="background-color:rgb(0, 0, 0);")
+		div(class='aura')
+			each friend in friends
+				div(class='aura-content')
+					a(href='/users/' + friend.uId)= friend.username
+					br
+			script.
+				const friends = !{JSON.stringify(friends)};
+				const auras = document.getElementsByClassName('aura-content');
+				for (let i = 0; i < auras.length; i++) {
+					const aura = auras[i];
+					const friend = friends[i];
+					colours = ["#9F7BE9", "#F8F37F", "#ABF38F", "#31C5F4", "#E923F4"];
+					aura.style = `background: radial-gradient(${colours[friend.mood[2] - 1]}, ${colours[friend.mood[1] - 1]}, ${colours[friend.mood[0] - 1]});`;
+				}
