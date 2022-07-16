@@ -1,0 +1,65 @@
+html { }
+
+.aura {
+	height: 100%;
+	width: 100%;
+        position: relative;
+        
+}
+.aura-content {
+  position: relative;
+  
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+}
+
+#mood-prompt {
+	opacity: 1;
+	transition: opacity 0.5s ease-in;
+}
+
+#mood-prompt:button:hover {
+	opacity: 1;
+}
+
+#mood-prompt-button-row {
+	margin-top: 0px;
+
+}
+
+#mood-prompt button {
+	width: 600px;
+	height: 300px;
+	margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+	border-radius: 200px;
+	border: none;
+        display: block;
+        text-align: center;
+        
+}
+/* TODO - gradients + num buttons currently also hardcoded like about.html*/
+#button-1 {
+	background: radial-gradient(#31C5F4, #9F7BE9, #E923F4);
+}
+
+#button-2 {
+	background: radial-gradient(#9F7BE9, #F8F37F, #31C5F4);
+}
+
+#button-3 {
+	background: radial-gradient(#31C5F4, #9F7BE9, #F8F37F);
+}
+
+#button-4 {
+	background: radial-gradient(#9F7BE9, #F8F37F, #E923F4);
+
+}
+
+#button-5 {
+	background: radial-gradient(#E923F4, #31C5F4, #F8F37F);
+}
+
+
