@@ -7,6 +7,12 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
+app.use(express.static('static'));
+
+app.get('/', (_, res) => {
+  res.sendFile('/index.html')
+});
+
 const PORT: number = parseInt(process.env.PORT || config.port);
 const HOST: string = process.env.IP || 'localhost';
 
