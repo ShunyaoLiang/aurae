@@ -7,11 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.get('/setMood', (req, res, next) => {
-  let { uId, mood } = req.query;
-  const user = parseInt((uId as string));
-  const moodNumber = parseInt((mood as string));
-  res.json(setMood(user, moodNumber));
+app.post('/setMood', (req, res, next) => {
+  const { uId, mood } = req.body
+  res.json(setMood(uId, mood));
 });
 
 app.get('/summaryPage', (req, res, next) => {
