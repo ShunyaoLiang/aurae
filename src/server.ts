@@ -46,7 +46,8 @@ app.get('/reachOut', (req, res, next) => {
 app.get('/', (req, res) => {
   const token = parseInt(req.query.token as string);
   res.render('index', {
-    friends: homePageData(token)
+    friends: homePageData(token),
+    reachOut: reachOutNotif(token)
   });
 });
 

@@ -2,9 +2,15 @@ import e from "express";
 import { getData, setdata } from "./dataStore";
 
 interface returnData {
+<<<<<<< HEAD
 	uId: number;
 	username: string;
 	mood: number[];
+=======
+	username: string,
+	mood: number[],
+  uId: number,
+>>>>>>> fed869b (dkjshfdsif)
 	comment: string
 }
 interface profileData {
@@ -64,7 +70,8 @@ function homePageData(uId: number): returnData[] {
 			returnData.push({
 				uId: i.uId,
 				username: i.username,
-				mood: i.mood,
+        uId: i.uId,
+				mood: i.mood.slice(-3),
 				comment: i.comment
 			})
 		}
@@ -95,6 +102,7 @@ function reachOutNotif(token: number) {
 	return;
 }
 
+<<<<<<< HEAD
 function moodSelect (token: number ) {
 	let data = getData();
 	const index = data.users.findIndex(e => e.uId === token);
@@ -106,3 +114,6 @@ function moodSelect (token: number ) {
 }
 
 export { userLogin, userLogout, setMood, homePageData, Profiledata, reachOutNotif, moodSelect };
+=======
+export { userLogin, userLogout, setMood, homePageData, Profiledata, reachOutNotif };
+>>>>>>> fed869b (dkjshfdsif)
