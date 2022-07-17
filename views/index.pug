@@ -1,10 +1,16 @@
 doctype html
 html(lang='en')
 	include ./head.pug
-	body(body style="background-color:rgb(0, 0, 0);")
+	body(body style="background-color:#1e252c")
+		div(class="topbar")
+			h1(style="color: #ffffff") Aurae
+
+		p Welcome back to Aurae. Here's how your friends are doing.
+
 		div(class='aura')
 			each friend in friends
 				div(class='aura-content')
+					div(class='aura-bar')
 					a(href='/users/' + friend.uId)= friend.username
 					br
 			script.
@@ -14,5 +20,5 @@ html(lang='en')
 					const aura = auras[i];
 					const friend = friends[i];
 					colours = ["#9F7BE9", "#F8F37F", "#ABF38F", "#31C5F4", "#E923F4"];
-					aura.style = `background: radial-gradient(${colours[friend.mood[2] - 1]}, ${colours[friend.mood[1] - 1]}, ${colours[friend.mood[0] - 1]});`;
+					aura.firstChild.style = `background: linear-gradient(to right, ${colours[friend.mood[2] - 1]}, ${colours[friend.mood[1] - 1]}, ${colours[friend.mood[0] - 1]});`;
 				}
