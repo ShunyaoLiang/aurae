@@ -64,7 +64,6 @@ function homePageData(uId: number): returnData[] {
 			returnData.push({
 				uId: i.uId,
 				username: i.username,
-        uId: i.uId,
 				mood: i.mood.slice(-3),
 				comment: i.comment
 			})
