@@ -2,15 +2,9 @@ import e from "express";
 import { getData, setdata } from "./dataStore";
 
 interface returnData {
-<<<<<<< HEAD
-	uId: number;
-	username: string;
-	mood: number[];
-=======
 	username: string,
 	mood: number[],
   uId: number,
->>>>>>> fed869b (dkjshfdsif)
 	comment: string
 }
 interface profileData {
