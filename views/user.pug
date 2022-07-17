@@ -1,3 +1,16 @@
-html
-	body
-		p #{id}
+doctype html
+html(lang='en')
+	include ./head.pug
+	body(body style="background-color:#1e252c")
+		div(class="topbar")
+			h1(style="color: #ffffff") Aurae
+
+		p= profile.username 
+		p= profile.comment
+		div(class='aura-bar' id='the-aura-bar')
+
+		script.
+			const mood = !{JSON.stringify(profile.mood)};
+			const aura = document.getElementById('the-aura-bar');
+			colours = ["#9F7BE9", "#F8F37F", "#ABF38F", "#31C5F4", "#E923F4"];
+			aura.style = `background: linear-gradient(to right, ${colours[mood[2] - 1]}, ${colours[mood[1] - 1]}, ${colours[mood[0] - 1]});`;

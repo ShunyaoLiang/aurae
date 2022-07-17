@@ -64,6 +64,11 @@ body p {
 	font-size: 30px;
 }
 
+#the-aura-bar {
+	width: 40%;
+	margin: auto;
+}
+
 #mood-prompt {
 	opacity: 1;
 	transition: opacity 0.5s ease-in;
