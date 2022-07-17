@@ -96,7 +96,6 @@ function reachOutNotif(token: number) {
 	return;
 }
 
-<<<<<<< HEAD
 function moodSelect (token: number ) {
 	let data = getData();
 	const index = data.users.findIndex(e => e.uId === token);
@@ -108,6 +107,3 @@ function moodSelect (token: number ) {
 }
 
 export { userLogin, userLogout, setMood, homePageData, Profiledata, reachOutNotif, moodSelect };
-=======
-export { userLogin, userLogout, setMood, homePageData, Profiledata, reachOutNotif };
->>>>>>> fed869b (dkjshfdsif)
